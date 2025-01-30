@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,4 +12,10 @@
 
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  min-height: 100vh;
+}
+
+.main-button {
+  @apply shadow-custom rounded-full border-2 border-blue-300 px-7 py-3 text-center font-semibold text-white transition-colors hover:bg-blue-300 hover:text-black;
 }
