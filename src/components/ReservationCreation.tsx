@@ -29,7 +29,7 @@ export default function ReservationCreation({ reservationData, onSuccess }: Rese
       {isModalOpen && (
         <div className="fixed inset-0 flex items-start justify-center overflow-y-auto bg-black bg-opacity-50 py-20 backdrop-blur">
           <div className="w-96 rounded-lg bg-custom-blue p-6 shadow-custom">
-            <h2 className="font-aladin mb-4 text-xl font-semibold">Crear Reserva</h2>
+            <h2 className="mb-4 font-aladin text-xl font-semibold">Crear Reserva</h2>
 
             <form onSubmit={formik.handleSubmit}>
               {/* Pasajeros */}
@@ -50,9 +50,11 @@ export default function ReservationCreation({ reservationData, onSuccess }: Rese
                         onChange={formik.handleChange}
                         className="w-full rounded border p-2 text-black"
                       />
-                      {formik.touched.passengers?.[index]?.fullName && formik.errors.passengers?.[index]?.fullName && (
-                        <p className="text-sm text-red-500">{formik.errors.passengers[index].fullName}</p>
-                      )}
+                      {formik.touched.passengers?.[index]?.fullName &&
+                        typeof formik.errors.passengers?.[index] === 'object' &&
+                        formik.errors.passengers?.[index]?.fullName && (
+                          <p className="text-sm text-red-500">{formik.errors.passengers[index].fullName}</p>
+                        )}
                     </div>
 
                     {/* Fecha de nacimiento */}
@@ -65,9 +67,11 @@ export default function ReservationCreation({ reservationData, onSuccess }: Rese
                         onChange={formik.handleChange}
                         className="w-full rounded border p-2 text-black"
                       />
-                      {formik.touched.passengers?.[index]?.birthDate && formik.errors.passengers?.[index]?.birthDate && (
-                        <p className="text-sm text-red-500">{formik.errors.passengers[index].birthDate}</p>
-                      )}
+                      {formik.touched.passengers?.[index]?.birthDate &&
+                        typeof formik.errors.passengers?.[index] === 'object' &&
+                        formik.errors.passengers?.[index]?.birthDate && (
+                          <p className="text-sm text-red-500">{formik.errors.passengers[index].birthDate}</p>
+                        )}
                     </div>
 
                     {/* Género */}
@@ -84,9 +88,11 @@ export default function ReservationCreation({ reservationData, onSuccess }: Rese
                         <option value="Female">Femenino</option>
                         <option value="Other">Otro</option>
                       </select>
-                      {formik.touched.passengers?.[index]?.gender && formik.errors.passengers?.[index]?.gender && (
-                        <p className="text-sm text-red-500">{formik.errors.passengers[index].gender}</p>
-                      )}
+                      {formik.touched.passengers?.[index]?.gender &&
+                        typeof formik.errors.passengers?.[index] === 'object' &&
+                        formik.errors.passengers?.[index]?.gender && (
+                          <p className="text-sm text-red-500">{formik.errors.passengers[index].gender}</p>
+                        )}
                     </div>
 
                     {/* Tipo de documento */}
@@ -103,9 +109,11 @@ export default function ReservationCreation({ reservationData, onSuccess }: Rese
                         <option value="ID">Cédula</option>
                         <option value="DriverLicense">Licencia de conducir</option>
                       </select>
-                      {formik.touched.passengers?.[index]?.documentType && formik.errors.passengers?.[index]?.documentType && (
-                        <p className="text-sm text-red-500">{formik.errors.passengers[index].documentType}</p>
-                      )}
+                      {formik.touched.passengers?.[index]?.documentType &&
+                        typeof formik.errors.passengers?.[index] === 'object' &&
+                        formik.errors.passengers?.[index]?.documentType && (
+                          <p className="text-sm text-red-500">{formik.errors.passengers[index].documentType}</p>
+                        )}
                     </div>
 
                     {/* Número de documento */}
@@ -119,9 +127,11 @@ export default function ReservationCreation({ reservationData, onSuccess }: Rese
                         onChange={formik.handleChange}
                         className="w-full rounded border p-2 text-black"
                       />
-                      {formik.touched.passengers?.[index]?.documentNumber && formik.errors.passengers?.[index]?.documentNumber && (
-                        <p className="text-sm text-red-500">{formik.errors.passengers[index].documentNumber}</p>
-                      )}
+                      {formik.touched.passengers?.[index]?.documentNumber &&
+                        typeof formik.errors.passengers?.[index] === 'object' &&
+                        formik.errors.passengers?.[index]?.documentNumber && (
+                          <p className="text-sm text-red-500">{formik.errors.passengers[index].documentNumber}</p>
+                        )}
                     </div>
 
                     {/* Email */}
@@ -135,9 +145,11 @@ export default function ReservationCreation({ reservationData, onSuccess }: Rese
                         onChange={formik.handleChange}
                         className="w-full rounded border p-2 text-black"
                       />
-                      {formik.touched.passengers?.[index]?.email && formik.errors.passengers?.[index]?.email && (
-                        <p className="text-sm text-red-500">{formik.errors.passengers[index].email}</p>
-                      )}
+                      {formik.touched.passengers?.[index]?.email &&
+                        typeof formik.errors.passengers?.[index] === 'object' &&
+                        formik.errors.passengers?.[index]?.email && (
+                          <p className="text-sm text-red-500">{formik.errors.passengers[index].email}</p>
+                        )}
                     </div>
 
                     {/* Teléfono de contacto */}
@@ -151,9 +163,11 @@ export default function ReservationCreation({ reservationData, onSuccess }: Rese
                         onChange={formik.handleChange}
                         className="w-full rounded border p-2 text-black"
                       />
-                      {formik.touched.passengers?.[index]?.contactPhone && formik.errors.passengers?.[index]?.contactPhone && (
-                        <p className="text-sm text-red-500">{formik.errors.passengers[index].contactPhone}</p>
-                      )}
+                      {formik.touched.passengers?.[index]?.contactPhone &&
+                        typeof formik.errors.passengers?.[index] === 'object' &&
+                        formik.errors.passengers?.[index]?.contactPhone && (
+                          <p className="text-sm text-red-500">{formik.errors.passengers[index].contactPhone}</p>
+                        )}
                     </div>
                   </div>
                 ))}

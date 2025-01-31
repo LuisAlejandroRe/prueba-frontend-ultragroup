@@ -11,7 +11,7 @@ const ReservationsView = () => {
   return (
     <div className="w-11/12 max-w-screen-lg p-6">
       <header className="mb-8 flex w-full flex-col items-center justify-between gap-7">
-        <h2 className="font-aladin text-3xl font-bold text-white">Lista de Reservationes</h2>
+        <h2 className="font-aladin text-3xl font-bold text-white">Lista de Reservaciones</h2>
       </header>
       {loading ? (
         <Loader />
