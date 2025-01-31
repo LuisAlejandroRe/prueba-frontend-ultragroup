@@ -4,11 +4,15 @@ export interface HotelCreationDTO {
   isActive: boolean;
 }
 
-export interface Hotel {
+export interface Hotel extends HotelCreationDTO {
   id: string;
-  name: string;
-  location: string;
-  isActive: boolean;
   createdAt: number;
   updatedAt: number;
+}
+
+export interface HotelFilter {
+  checkInDate: string;
+  checkOutDate: string;
+  numberOfPeople: number;
+  destinationCity: string;
 }

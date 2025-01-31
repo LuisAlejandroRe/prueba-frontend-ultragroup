@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aladin&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -17,5 +17,9 @@ body {
 }
 
 .main-button {
-  @apply shadow-custom rounded-full border-2 border-blue-300 px-7 py-3 text-center font-semibold text-white transition-colors hover:bg-blue-300 hover:text-black;
+  @apply rounded-full border-2 border-blue-300 px-7 py-3 text-center font-semibold text-white shadow-custom transition-colors hover:bg-blue-300 hover:text-black;
+}
+
+.card-container {
+  @apply flex min-w-56 flex-col items-center justify-between rounded-3xl border border-gray-500 bg-custom-blue text-white shadow-custom;
 }

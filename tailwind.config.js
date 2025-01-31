@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        bonanova: ['Bona Nova SC', 'serif'],
+        aladin: ['Aladin', 'serif'],
       },
       colors: {
         'custom-blue': '#243b55',

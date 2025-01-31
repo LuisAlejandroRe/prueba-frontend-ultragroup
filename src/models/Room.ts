@@ -1,11 +1,16 @@
-export interface Room {
-  id: string;
+export interface RoomCreationDTO {
   hotelId: string;
+  name: string;
   type: string;
+  location: string;
   baseCost: number;
   taxes: number;
-  location: string;
+  capacity: number;
   isActive: boolean;
+}
+
+export interface Room extends RoomCreationDTO {
+  id: string;
   createdAt: number;
   updatedAt: number;
 }

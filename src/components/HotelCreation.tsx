@@ -3,12 +3,14 @@ import { useHotelCreationForm } from '../viewmodels/HotelCreationModel';
 import CitySelect from './CitySelect';
 import Loader from './Loader';
 
+const hotelService = new HotelService();
+
 interface HotelCreationProps {
   onSuccess?: Function;
 }
 
 export default function HotelCreation({ onSuccess }: HotelCreationProps) {
-  const { isModalOpen, openModal, closeModal, formik } = useHotelCreationForm(new HotelService(), onSuccess);
+  const { isModalOpen, openModal, closeModal, formik } = useHotelCreationForm(hotelService, onSuccess);
 
   return (
     <>
@@ -20,8 +22,8 @@ export default function HotelCreation({ onSuccess }: HotelCreationProps) {
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur">
-          <div className="bg-custom-blue shadow-custom w-96 rounded-lg p-6 text-white">
-            <h2 className="font-bonanova mb-4 text-xl font-semibold">Crear Hotel</h2>
+          <div className="w-96 rounded-lg bg-custom-blue p-6 text-white shadow-custom">
+            <h2 className="font-aladin mb-4 text-xl font-semibold">Crear Hotel</h2>
 
             <form onSubmit={formik.handleSubmit}>
               {/* Nombre del hotel */}

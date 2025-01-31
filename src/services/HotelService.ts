@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Hotel, HotelCreationDTO } from '../models/Hotel';
 
@@ -12,6 +12,18 @@ export class HotelService {
     } catch (error) {
       console.error('Error obteniendo hoteles:', error);
       throw new Error('No se pudo obtener la lista de hoteles.');
+    }
+  }
+
+  async getHotelById(id: string): Promise<Hotel | null> {
+    try {
+      const hotelRef = doc(this.collectionRef, id);
+      const docSnap = await getDoc(hotelRef);
+      if (!docSnap.exists()) return null;
+      return { id: docSnap.id, ...docSnap.data() } as Hotel;
+    } catch (error) {
+      console.error('Error obteniendo hotel:', error);
+      throw new Error('No se pudo obtener datos de hotel.');
     }
   }
 
