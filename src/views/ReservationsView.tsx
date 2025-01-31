@@ -17,7 +17,7 @@ const ReservationsView = () => {
         <Loader />
       ) : reservations.length === 0 ? (
         <div className="flex w-full justify-center text-center text-lg text-gray-400">
-          <p>No tienes reservationes agregados.</p>
+          <p>Aún no tienes reservaciones.</p>
         </div>
       ) : (
         <ul className="flex w-full flex-wrap items-start justify-center gap-4">

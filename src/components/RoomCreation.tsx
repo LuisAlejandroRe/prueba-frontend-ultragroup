@@ -24,7 +24,7 @@ export default function RoomCreation({ hotelId, onSuccess }: RoomCreationProps) 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur">
           <div className="w-96 rounded-lg bg-custom-blue p-6 shadow-custom">
-            <h2 className="font-aladin mb-4 text-xl font-semibold text-white">Crear Habitación</h2>
+            <h2 className="mb-4 font-aladin text-xl font-semibold text-white">Crear Habitación</h2>
 
             <form onSubmit={formik.handleSubmit}>
               {/* Nombre de la habitación */}
@@ -55,7 +55,7 @@ export default function RoomCreation({ hotelId, onSuccess }: RoomCreationProps) 
 
               {/* Selector de ciudad */}
               <div className="mb-4">
-                <label className="block text-sm font-medium">Ubicación</label>
+                <label className="block text-sm font-medium text-white">Ubicación</label>
                 <CitySelect selectedCity={formik.values.location} onSelect={city => formik.setFieldValue('location', city)} />
                 {formik.touched.location && formik.errors.location && <p className="text-sm text-red-500">{formik.errors.location}</p>}
               </div>

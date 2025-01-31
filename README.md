@@ -1,50 +1,104 @@
-# React + TypeScript + Vite
+# 🏨 Plataforma de manejo de hoteles
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Permite a agentes de viaje gestionar hoteles y habitaciones, mientras que los viajeros pueden realizar reservaciones filtrando por fechas, número de pasajeros y destino.
 
-Currently, two official plugins are available:
+## 📌 **Índice**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [📖 Descripción](#-descripción)
+- [🛠️ Tecnologías Usadas](#-tecnologías-usadas)
+- [🗂️ Arquitectura y Patrones](#-arquitectura-y-patrones)
+- [⚙️ Funcionalidades](#-funcionalidades)
+- [🚀 CI/CD con GitHub Actions y S3](#-cicd-con-github-actions-y-s3)
+- [🛠️ Instalación y Uso](#-instalación-y-uso)
+- [📜 Licencia](#-licencia)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 📖 **Descripción**
 
-- Configure the top-level `parserOptions` property like this:
+Este proyecto es una aplicación web desarrollada con **React y TypeScript** que sigue el patrón **MVVM (Model-View-ViewModel)** y aprovecha la **inyección de dependencias** para manejar servicios.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Los **agentes de viaje** pueden administrar hoteles y habitaciones, mientras que los **viajeros** pueden buscar y reservar alojamiento según sus necesidades.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🛠️ **Tecnologías Usadas**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+| Tecnología         | Uso                                    |
+| ------------------ | -------------------------------------- |
+| **React**          | Framework para la UI                   |
+| **TypeScript**     | Tipado estático y robustez del código  |
+| **Formik + Yup**   | Manejo de formularios y validaciones   |
+| **Tailwind CSS**   | Estilizado ágil y responsive           |
+| **Firebase**       | Base de datos, BaaS y uso mediante SDK |
+| **AWS S3**         | Almacenamiento y despliegue estático   |
+| **GitHub Actions** | Automatización de despliegue (CI/CD)   |
+
+---
+
+## 🗂️ **Arquitectura y Patrones**
+
+📌 **MVVM (Model-View-ViewModel)**
+
+- **Model**: Gestiona los datos y la lógica de negocio.
+- **ViewModel**: Maneja la lógica de UI y el estado del formulario con Formik.
+- **View**: Componentes de React que renderizan la UI.
+
+📌 **Inyección de Dependencias**
+
+- Permite manejar servicios como `HotelService` de forma desacoplada.
+
+📌 **Optimización con `useTransition`**
+
+- Mejora la experiencia de búsqueda de ciudades sin bloquear la UI.
+
+---
+
+## ⚙️ **Funcionalidades**
+
+### 🏨 **Como Agente de Viaje**
+
+✅ Crear hoteles y habitaciones.  
+✅ Deshabilitar hoteles y habitaciones.  
+✅ Listar todas las reservaciones.
+
+### 🧳 **Como Viajero**
+
+✅ Buscar hoteles filtrando por:
+
+- Fechas de entrada y salida.
+- Número de pasajeros.
+- Ciudad de destino.  
+  ✅ Realizar reservas con información de pasajeros.
+
+---
+
+## 🚀 **CI/CD con GitHub Actions y S3**
+
+🔹 Se usa **GitHub Actions** para automatizar el despliegue en **AWS S3**.
+
+📌 **Pipeline de CI/CD incluye:**
+
+1. Construcción del proyecto (`yarn build`).
+2. Subir los archivos a un **bucket S3** para hosting estático.
+
+🌍 **Accede a la plataforma aquí:** [Enlace de despliegue en S3](http://prueba-frontend-ultragroup.bucket.s3-website-us-east-1.amazonaws.com/)
+
+---
+
+## 🛠️ **Instalación y Uso**
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/LuisAlejandroRe/prueba-frontend-ultragroup.git
+cd prueba-frontend-ultragroup
+
+# Instalar dependencias
+yarn
+
+# Ejecutar en desarrollo
+yarn dev
+
+# Construir para producción
+yarn build
 ```
